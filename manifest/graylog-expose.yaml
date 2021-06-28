@@ -10,4 +10,4 @@ spec:
     - port: 9000
       nodePort: 30900      
   selector:
-    name: graylog
+    app: graylog
