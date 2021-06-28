@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose -f docker-compose.yml convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: graylog
+  name: graylog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: graylog
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose -f docker-compose.yml convert
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/dmz: "true"
+        io.kompose.network/graylog: "true"
+        io.kompose.service: graylog
+    spec:
+      containers:
+        - env:
+            - name: GRAYLOG_HTTP_EXTERNAL_URI
+              value: http://192.168.1.15:9000/
+            - name: GRAYLOG_HTTP_PUBLISH_URI
+              value: http://192.168.1.15:9000/
+            - name: GRAYLOG_PASSWORD_SECRET
+              value: somepasswordpepper
+            - name: GRAYLOG_ROOT_PASSWORD_SHA2
+              value: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+          image: graylog/graylog:3.2
+          name: graylog
+          ports:
+            - containerPort: 9000
+            - containerPort: 1514
+            - containerPort: 1514
+              protocol: UDP
+            - containerPort: 12201
+            - containerPort: 12201
+              protocol: UDP
+            - containerPort: 5044
+          resources: {}
+      restartPolicy: Always
+status: {}
