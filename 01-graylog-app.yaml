@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   source:
-    path: guestbook
+    path: manifest
     repoURL: https://github.com/marianocarea-newtech/graylog.git
     targetRevision: HEAD
   destination:
