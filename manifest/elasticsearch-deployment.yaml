@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose -f docker-compose.yml convert
+    kompose.cmd: kompose convert -f docker-compose.yml
     kompose.version: 1.22.0 (955b78124)
   creationTimestamp: null
   labels:
@@ -17,7 +17,7 @@ spec:
   template:
     metadata:
       annotations:
-        kompose.cmd: kompose -f docker-compose.yml convert
+        kompose.cmd: kompose convert -f docker-compose.yml
         kompose.version: 1.22.0 (955b78124)
       creationTimestamp: null
       labels:
@@ -36,6 +36,9 @@ spec:
               value: localhost
           image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.5
           name: elasticsearch
+          ports:
+            - containerPort: 9200
+            - containerPort: 9300
           resources:
             limits:
               memory: "1073741824"
