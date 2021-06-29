@@ -35,7 +35,7 @@ spec:
               value: somepasswordpepper
             - name: GRAYLOG_ROOT_PASSWORD_SHA2
               value: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
-          image: graylog/graylog:3.2
+          image: graylog/graylog:4.1
           name: graylog
           ports:
             - containerPort: 9000
