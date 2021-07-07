@@ -6,11 +6,11 @@ spec:
   rules:
   - http:
       paths:
-      - path: /v1
+      - path: /graylog
         pathType: Prefix
         backend:
           service:
             name: graylog
             port:
-              number: 80
+              number: 9000
     
