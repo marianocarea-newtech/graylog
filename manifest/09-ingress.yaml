@@ -10,16 +10,16 @@ metadata:
   
   #annotations:
    # kubernetes.io/ingress.class: "nginx"
-  #annotations:
-   # nginx.ingress.kubernetes.io/rewrite-target: /
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
   
 spec: 
   ingressClassName: nginx
   rules:
-  - host: example.com
+  - host: v1.example.com
     http:
       paths:
-        - path: /
+        - path: /graylog
           pathType: Prefix
           backend:
             service:
