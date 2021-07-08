@@ -1,29 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  annotations:
-    kompose.cmd: kompose -f docker-compose.yml convert
-    kompose.version: 1.22.0 (955b78124)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: graylog
+metadata: 
   name: graylog
 spec:
   replicas: 2
   selector:
     matchLabels:
-      io.kompose.service: graylog
-  strategy: {}
+      app: graylog 
   template:
-    metadata:
-      annotations:
-        kompose.cmd: kompose -f docker-compose.yml convert
-        kompose.version: 1.22.0 (955b78124)
-      creationTimestamp: null
+    metadata:     
       labels:
         io.kompose.network/dmz: "true"
         io.kompose.network/graylog: "true"
-        io.kompose.service: graylog
+        app: graylog
     spec:
       containers:
         - env:
