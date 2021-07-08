@@ -2,10 +2,12 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: graylog-ingress 
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
   #annotations:
    # nginx.ingress.kubernetes.io/rewrite-target: /
   
-spec:  
+spec:     
   rules:
   - http:
       paths:
