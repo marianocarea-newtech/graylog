@@ -9,12 +9,13 @@ metadata:
   
 spec:     
   rules:
-  - http:
+  - host: example.com
+    http:
       paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: graylog-service
-            port:
-              number: 9000
+        - path: /   
+          pathType: Prefix
+          backend:
+            service:
+              name: graylog-service
+              port:
+                number: 9000
