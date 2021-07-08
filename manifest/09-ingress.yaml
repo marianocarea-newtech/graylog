@@ -13,6 +13,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: graylog
+            name: graylog-service
             port:
               number: 9000
