@@ -30,5 +30,4 @@ spec:
       targetPort: 5044
   selector:
     app: graylog
-status:
-  loadBalancer: {}
+
