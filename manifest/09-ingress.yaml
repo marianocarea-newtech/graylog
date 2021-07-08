@@ -4,8 +4,8 @@ metadata:
   name: graylog-ingress 
   #annotations:
    # kubernetes.io/ingress.class: "nginx"
-  #annotations:
-   # nginx.ingress.kubernetes.io/rewrite-target: /
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
   
 spec: 
   ingressClassName: nginx
