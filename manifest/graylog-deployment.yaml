@@ -9,9 +9,7 @@ spec:
       app: graylog 
   template:
     metadata:     
-      labels:
-        io.kompose.network/dmz: "true"
-        io.kompose.network/graylog: "true"
+      labels:        
         app: graylog
     spec:
       containers:
