@@ -20,8 +20,7 @@ spec:
         kompose.cmd: kompose convert -f docker-compose.yml
         kompose.version: 1.22.0 (955b78124)
       creationTimestamp: null
-      labels:
-        io.kompose.network/graylog: "true"
+      labels:        
         io.kompose.service: elasticsearch
     spec:
       containers:
